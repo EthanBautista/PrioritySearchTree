@@ -9,7 +9,7 @@
  */
 public class PrioritySearchTree {
     private int size = 0;
-    private Node[] H = new Node[10];
+    private Node[] H = new Node[11];
 
     //Constructor - for use later
     PrioritySearchTree() {
@@ -29,20 +29,23 @@ public class PrioritySearchTree {
         return 2 * i + 1;
     }
 
-    public void SiftUp(Node i) { //Questionable
+    public void SiftUp(Node i, int index) { //Questionable
         int y = i.getY();
-        while (y > 1 && H[Parent(y)].getY() < H[y].getY()) {
-            Node temp = H[y];
-            H[y] = H[Parent(y)];
-            H[Parent(y)] = temp;
-            i = H[Parent(y)];
+        while (y > 1 && H[Parent(index)].getY() < H[index].getY()) {
+            Node temp = H[index];
+            H[index] = H[Parent(index)];
+            H[Parent(index)] = temp;
+            index = Parent(index);
         }
     }
 
     public void Insert(Node t) {
+        
         H[size] = t;
-        SiftUp(H[size]);
+        SiftUp(H[size], size);
         size++;
+         
+       
     }
 
     public void Print() {
