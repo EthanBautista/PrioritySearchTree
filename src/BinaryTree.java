@@ -31,5 +31,10 @@ public class BinaryTree {
         for(int i = 0; i < T.size(); i++){
             System.out.print( "(" +T.get(i).getX() + "," + T.get(i).getY() + ")");
         }
+        System.out.println(); //Spacer
+    }
+
+    public int size(){
+        return T.size();
     }
 }

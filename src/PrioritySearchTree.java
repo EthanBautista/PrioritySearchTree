@@ -5,7 +5,6 @@
  */
 
 /**
- *
  * @author 100657250
  */
 public class PrioritySearchTree {
@@ -13,11 +12,11 @@ public class PrioritySearchTree {
     private Node[] H = new Node[10];
 
     //Constructor - for use later
-    PrioritySearchTree(){
+    PrioritySearchTree() {
 
     }
 
-    
+
     private int Parent(int i) {
         return (int) Math.floor(i / 2);
     }
@@ -29,22 +28,29 @@ public class PrioritySearchTree {
     private int RightChild(int i) {
         return 2 * i + 1;
     }
-    
-    public void SiftUp(Node i){ //Questionable
-       int y = i.getY();
-        while(y > 1 && H[Parent(y)].getY() < H[y].getY()){
+
+    public void SiftUp(Node i) { //Questionable
+        int y = i.getY();
+        while (y > 1 && H[Parent(y)].getY() < H[y].getY()) {
             Node temp = H[y];
             H[y] = H[Parent(y)];
             H[Parent(y)] = temp;
             i = H[Parent(y)];
-       }
-    } 
-        
-    public void Insert(Node t) {
-         size = size + 1;
-            H[size] = t;
-            SiftUp(H[size]);
-        
+        }
     }
+
+    public void Insert(Node t) {
+        H[size] = t;
+        SiftUp(H[size]);
+        size++;
+    }
+
+    public void Print() {
+        for (int i = 0; i < size; i++) {
+            System.out.print("(" + H[i].getX() + "," + H[i].getY() + ")");
+        }
+        System.out.println(); //Spacer
+    }
+
 
 }
