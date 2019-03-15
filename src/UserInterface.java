@@ -1,5 +1,5 @@
 public class UserInterface {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         //Trees holding nodes
         PrioritySearchTree pst = new PrioritySearchTree();
@@ -29,20 +29,15 @@ public class UserInterface {
         bt.Print();
 
         //remove nodes from bt & add to pst
-        pst.Insert(n1);
-        //transfer_bt_bst(bt, pst);
-        //pst.Insert(bt.Remove());
-        //pst.Insert(bt.Remove());
-
-
+        transfer_bt_bst(bt, pst);
 
         //print pst
         pst.Print();
 
     }
 
-    private static void transfer_bt_bst(BinaryTree ibt, PrioritySearchTree opst){
-        for(int i = 0; i != ibt.size(); i=i){
+    private static void transfer_bt_bst(BinaryTree ibt, PrioritySearchTree opst) {
+        for (int i = 0; i != ibt.size(); i = i) {
             opst.Insert(ibt.Remove());
         }
     }

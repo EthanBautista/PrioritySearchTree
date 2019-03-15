@@ -40,12 +40,12 @@ public class PrioritySearchTree {
     }
 
     public void Insert(Node t) {
-        
+
         H[size] = t;
         SiftUp(H[size], size);
         size++;
-         
-       
+
+
     }
 
     public void Print() {
