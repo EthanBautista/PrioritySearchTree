@@ -11,7 +11,12 @@
 public class PrioritySearchTree {
     private int size = 0;
     private Node[] H = new Node[10];
-    
+
+    //Constructor - for use later
+    PrioritySearchTree(){
+
+    }
+
     
     private int Parent(int i) {
         return (int) Math.floor(i / 2);
