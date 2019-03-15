@@ -52,5 +52,4 @@ public class PrioritySearchTree {
         System.out.println(); //Spacer
     }
 
-
 }
