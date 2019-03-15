@@ -16,7 +16,7 @@ public class BinaryTree {
     }
 
     public Node Remove() {
-        
+
         if (!T.isEmpty()) {
             Node Temp = T.get(0);
             T.remove(T.get(0));
@@ -25,5 +25,11 @@ public class BinaryTree {
 
         return null;
     }
-    
+
+    public void Print(){
+
+        for(int i = 0; i < T.size(); i++){
+            System.out.print( "(" +T.get(i).getX() + "," + T.get(i).getY() + ")");
+        }
+    }
 }
