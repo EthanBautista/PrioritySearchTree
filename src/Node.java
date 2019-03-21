@@ -8,6 +8,7 @@
  *
  * @author 100657250
  */
+package node;
 public class Node {
     private int x;
     private int y;

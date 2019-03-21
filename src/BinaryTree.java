@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package node;
+
 import java.util.Arrays;
 
 public class BinaryTree {
@@ -42,28 +44,28 @@ public class BinaryTree {
         return null;
     }
 
-    //Counts number of elements on left side of tree
     private int findRoot(Node[] t) {
         int elements = t.length - 1;
         int elementsls = 0;
 
-        for(int i = 1; elements >= 0; i++){
-            if((int) (elements - Math.pow(2, i)) > 0){
+        for (int i = 1; elements >= 0; i++) {
+            if ((int) (elements - Math.pow(2, i)) > 0) {
                 elements = (int) (elements - Math.pow(2, i));
             } else {
-                int rowmiddle = (int) Math.pow(2, i-1);
+                int rowmiddle = (int) Math.pow(2, i - 1);
 
-                if(elements > rowmiddle){
-                    elementsls = (int) (Math.pow(2, i)/2);
+                if (elements > rowmiddle) {
+                    elementsls = (int) (Math.pow(2, i) / 2);
                 } else {
                     elementsls = elements;
                 }
-                elementsls = (int) (elementsls + Math.pow(2, i-1)) -1;
+                elementsls = (int) (elementsls + Math.pow(2, i - 1)) - 1;
                 break;
             }
 
         }
         return elementsls;
+
     }
 
     public Node[] sortArray(Node[] t) {
@@ -109,7 +111,7 @@ public class BinaryTree {
         Node[] right = Arrays.copyOfRange(t, root, t.length);
 
         int rootL = findRoot(left);
-        int rootR = findRoot(right) - 1;
+        int rootR = findRoot(right);
 
         //Insert Second and third node
         T[splitIndex] = left[rootL];
@@ -124,13 +126,14 @@ public class BinaryTree {
                 count = count + 2;
 
                 // check if right of main root
-            } else if (Math.pow(2, layer) / 2 < count && splitIndex <= layerCount) {
+            } else if (Math.pow(2, layer) / 2 < count && splitIndex < layerCount) {
                 SplitLR(right, rootR);
                 count = count + 2;
 
                 // if end of the layer, go to next one
-            } else if (layerCount == splitIndex) {
+            } else if (layerCount <= splitIndex) {
                 layer++;
+                layerCount = (int) (Math.pow(2, layer + 1) - 1);
                 count = 0;
                 // left = leftL;
                 //SET ARRAY left TO SOMETHING BUT IDK WHAT IT SHOULD BE

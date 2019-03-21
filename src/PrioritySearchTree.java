@@ -7,6 +7,7 @@
 /**
  * @author 100657250
  */
+package node;
 public class PrioritySearchTree {
     private int size = 0;
     private Node[] H = new Node[11];
