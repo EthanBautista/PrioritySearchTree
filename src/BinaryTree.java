@@ -9,7 +9,6 @@ public class BinaryTree {
 
     int maxSize = 100;
     public Node[] T = new Node[maxSize]; // Actual Binary Tree
-
     int size = 0;
     int splitIndex = 1;
 
@@ -38,6 +37,7 @@ public class BinaryTree {
             size = size - 1;
             return Temp;
         }
+
         return null;
     }
 
@@ -132,8 +132,6 @@ public class BinaryTree {
                 layer++;
                 layerCount = (int) (Math.pow(2, layer + 1) - 1);
                 count = 0;
-                // left = leftL;
-                //SET ARRAY left TO SOMETHING BUT IDK WHAT IT SHOULD BE
 
             }
 
@@ -143,10 +141,9 @@ public class BinaryTree {
 
     //Inserts children of node
     public void SplitLR(Node[] l, int root) {
-        // FIX IF NODE HAS NO CHILDREN
-        if (l.length > 2) {
+        if (l.length > 3) {
             Node[] right = Arrays.copyOfRange(l, root, l.length);
-            Node[] left = Arrays.copyOfRange(l, 0, root);
+            Node[] left = Arrays.copyOfRange(l, 1, root);
             T[splitIndex] = left[findRoot(left)];
             splitIndex++;
             T[splitIndex] = right[findRoot(right)];
