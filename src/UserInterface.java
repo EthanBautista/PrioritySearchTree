@@ -39,7 +39,7 @@ public class UserInterface {
     }
 
     private static void transfer_bt_bst(BinaryTree ibt, PrioritySearchTree opst) {
-        for (int i = 0; i != ibt.size(); i = i) {
+        while(0 <= ibt.size){
             opst.Insert(ibt.Remove());
         }
     }

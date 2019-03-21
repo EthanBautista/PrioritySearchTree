@@ -38,7 +38,6 @@ public class BinaryTree {
             size = size - 1;
             return Temp;
         }
-
         return null;
     }
 
