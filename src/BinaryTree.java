@@ -42,17 +42,28 @@ public class BinaryTree {
         return null;
     }
 
-    public int findRoot(Node[] t) {
-        int count = 1;
-        if (t.length > 2) {
-            for (int i = 1; i <= t.length; i++) {
-                if (i == LeftChild(Parent(i))) {
-                    count++;
+    //Counts number of elements on left side of tree
+    private int findRoot(Node[] t) {
+        int elements = t.length - 1;
+        int elementsls = 0;
+
+        for(int i = 1; elements >= 0; i++){
+            if((int) (elements - Math.pow(2, i)) > 0){
+                elements = (int) (elements - Math.pow(2, i));
+            } else {
+                int rowmiddle = (int) Math.pow(2, i-1);
+
+                if(elements > rowmiddle){
+                    elementsls = (int) (Math.pow(2, i)/2);
+                } else {
+                    elementsls = elements;
                 }
+                elementsls = (int) (elementsls + Math.pow(2, i-1)) -1;
+                break;
             }
 
         }
-        return count;
+        return elementsls;
     }
 
     public Node[] sortArray(Node[] t) {
