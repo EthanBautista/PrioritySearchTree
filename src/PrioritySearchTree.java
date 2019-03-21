@@ -29,6 +29,7 @@ public class PrioritySearchTree {
         return 2 * i + 1;
     }
 
+    //Moves elements up if parent y is smaller then child y
     public void SiftUp(Node i, int index) {
         int y = i.getY();
         while (y > 1 && H[Parent(index)].getY() < H[index].getY()) {

@@ -38,6 +38,7 @@ public class UserInterface {
         //System.out.println(pst.subtreemax(n7));
     }
 
+    //Removes all elements from binarytree and inserts them into priority search tree
     private static void transfer_bt_bst(BinaryTree ibt, PrioritySearchTree opst) {
         while(0 <= ibt.size){
             opst.Insert(ibt.Remove());

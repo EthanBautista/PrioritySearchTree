@@ -41,6 +41,7 @@ public class BinaryTree {
         return null;
     }
 
+    //finds number of nodes left of root node
     private int findRoot(Node[] t) {
         int elements = t.length - 1;
         int elementsls = 0;
@@ -59,12 +60,11 @@ public class BinaryTree {
                 elementsls = (int) (elementsls + Math.pow(2, i - 1)) - 1;
                 break;
             }
-
         }
         return elementsls;
-
     }
 
+    //sorts nodes in asscending x cord
     public Node[] sortArray(Node[] t) {
         int[] x = new int[size + 1];
         // creates Array of x values
