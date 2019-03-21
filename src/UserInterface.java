@@ -1,4 +1,3 @@
-package node;
 public class UserInterface {
     public static void main(String[] args) {
 
@@ -36,6 +35,7 @@ public class UserInterface {
         //print pst
         pst.Print();
 
+        //System.out.println(pst.subtreemax(n7));
     }
 
     private static void transfer_bt_bst(BinaryTree ibt, PrioritySearchTree opst) {
